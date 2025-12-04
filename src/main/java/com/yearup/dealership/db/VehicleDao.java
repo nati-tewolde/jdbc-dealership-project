@@ -29,8 +29,8 @@ public class VehicleDao {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("""
                      SELECT *
-                     FROM car_dealership.vehicles
-                     WHERE price >= ? AND price <= ?
+                     FROM vehicles v
+                     WHERE v.price >= ? AND v.price <= ?
                      """
              )) {
 
@@ -52,9 +52,30 @@ public class VehicleDao {
 
     public List<Vehicle> searchByMakeModel(String make, String model) {
         // TODO: Implement the logic to search vehicles by make and model
+        List<Vehicle> vehicles = new ArrayList<>();
 
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("""
+                     SELECT *
+                     FROM vehicles v
+                     WHERE v.make = ? AND v.model = ?
+                     """
+             )) {
 
-        return new ArrayList<>();
+            preparedStatement.setString(1, make);
+            preparedStatement.setString(2, model);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    Vehicle vehicle = createVehicleFromResultSet(resultSet);
+                    vehicles.add(vehicle);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return vehicles;
     }
 
     public List<Vehicle> searchByYearRange(int minYear, int maxYear) {

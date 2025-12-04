@@ -188,6 +188,7 @@ public class Main {
         scanner.nextLine(); // Consume the newline character
 
         List<Vehicle> vehicles = vehicleDao.searchByPriceRange(minPrice, maxPrice);
+        // Empty list check
         displaySearchResults(vehicles);
     }
 
