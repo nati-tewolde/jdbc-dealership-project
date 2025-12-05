@@ -1,4 +1,4 @@
-# Advanced Car Dealership 
+# JDBC Car Dealership
 
 ## Project Overview
 
