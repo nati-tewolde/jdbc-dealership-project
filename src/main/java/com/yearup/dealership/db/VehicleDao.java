@@ -36,6 +36,7 @@ public class VehicleDao {
             preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
+            System.err.println("An unexpected database error occurred, please try again.");
             e.printStackTrace();
         }
     }
@@ -57,6 +58,7 @@ public class VehicleDao {
             }
 
         } catch (SQLException e) {
+            System.err.println("An unexpected database error occurred, please try again.");
             e.printStackTrace();
         }
     }
@@ -83,6 +85,7 @@ public class VehicleDao {
                 }
             }
         } catch (SQLException e) {
+            System.err.println("An unexpected database error occurred, please try again.");
             e.printStackTrace();
         }
 
@@ -111,6 +114,7 @@ public class VehicleDao {
                 }
             }
         } catch (SQLException e) {
+            System.err.println("An unexpected database error occurred, please try again.");
             e.printStackTrace();
         }
 
@@ -139,6 +143,7 @@ public class VehicleDao {
                 }
             }
         } catch (SQLException e) {
+            System.err.println("An unexpected database error occurred, please try again.");
             e.printStackTrace();
         }
 
@@ -166,6 +171,7 @@ public class VehicleDao {
                 }
             }
         } catch (SQLException e) {
+            System.err.println("An unexpected database error occurred, please try again.");
             e.printStackTrace();
         }
 
@@ -194,6 +200,7 @@ public class VehicleDao {
                 }
             }
         } catch (SQLException e) {
+            System.err.println("An unexpected database error occurred, please try again.");
             e.printStackTrace();
         }
 
@@ -221,6 +228,7 @@ public class VehicleDao {
                 }
             }
         } catch (SQLException e) {
+            System.err.println("An unexpected database error occurred, please try again.");
             e.printStackTrace();
         }
 
