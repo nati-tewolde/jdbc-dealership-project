@@ -42,7 +42,6 @@ public class VehicleDao {
     }
 
     public void removeVehicle(String VIN) {
-        // TODO: Implement the logic to remove a vehicle
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("""
                      DELETE FROM vehicles
@@ -64,7 +63,6 @@ public class VehicleDao {
     }
 
     public List<Vehicle> searchByPriceRange(double minPrice, double maxPrice) {
-        // TODO: Implement the logic to search vehicles by price range
         List<Vehicle> vehicles = new ArrayList<>();
 
         try (Connection connection = dataSource.getConnection();
@@ -93,7 +91,6 @@ public class VehicleDao {
     }
 
     public List<Vehicle> searchByMakeModel(String make, String model) {
-        // TODO: Implement the logic to search vehicles by make and model
         List<Vehicle> vehicles = new ArrayList<>();
 
         try (Connection connection = dataSource.getConnection();
@@ -122,7 +119,6 @@ public class VehicleDao {
     }
 
     public List<Vehicle> searchByYearRange(int minYear, int maxYear) {
-        // TODO: Implement the logic to search vehicles by year range
         List<Vehicle> vehicles = new ArrayList<>();
 
         try (Connection connection = dataSource.getConnection();
@@ -151,7 +147,6 @@ public class VehicleDao {
     }
 
     public List<Vehicle> searchByColor(String color) {
-        // TODO: Implement the logic to search vehicles by color
         List<Vehicle> vehicles = new ArrayList<>();
 
         try (Connection connection = dataSource.getConnection();
@@ -179,7 +174,6 @@ public class VehicleDao {
     }
 
     public List<Vehicle> searchByMileageRange(int minMileage, int maxMileage) {
-        // TODO: Implement the logic to search vehicles by mileage range
         List<Vehicle> vehicles = new ArrayList<>();
 
         try (Connection connection = dataSource.getConnection();
@@ -208,7 +202,6 @@ public class VehicleDao {
     }
 
     public List<Vehicle> searchByType(String type) {
-        // TODO: Implement the logic to search vehicles by type
         List<Vehicle> vehicles = new ArrayList<>();
 
         try (Connection connection = dataSource.getConnection();
