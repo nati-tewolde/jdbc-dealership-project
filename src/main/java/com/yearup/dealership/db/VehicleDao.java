@@ -17,11 +17,11 @@ public class VehicleDao {
     public void addVehicle(Vehicle vehicle) {
         try (Connection connection = dataSource.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement("""
-                             INSERT INTO vehicles
-                             (VIN, make, model, year, SOLD, color, vehicleType, odometer, price)
-                             VALUES
-                             (?, ?, ?, ?, ?, ?, ?, ?, ?)
-                             """)) {
+                     INSERT INTO vehicles
+                     (VIN, make, model, year, SOLD, color, vehicleType, odometer, price)
+                     VALUES
+                     (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                     """)) {
 
             preparedStatement.setString(1, vehicle.getVin());
             preparedStatement.setString(2, vehicle.getMake());
@@ -42,6 +42,23 @@ public class VehicleDao {
 
     public void removeVehicle(String VIN) {
         // TODO: Implement the logic to remove a vehicle
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement("""
+                     DELETE FROM vehicles
+                     WHERE VIN = ?
+                     """)) {
+
+            preparedStatement.setString(1, VIN);
+            int rows = preparedStatement.executeUpdate();
+
+            // Validate in case no matches are found
+            if (rows == 0) {
+                System.out.println("No vehicle found with VIN: " + VIN);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<Vehicle> searchByPriceRange(double minPrice, double maxPrice) {
